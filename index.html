@@ -128,7 +128,8 @@ function setup() {
 
 function draw() {
   background(255);
-
+ translate(cam.width, 0);
+   scale(-1, 1);
   camera.loadPixels()
   loadPixels();
   for (let y = 0; y < camera.height; y++) {
