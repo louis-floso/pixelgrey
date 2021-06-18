@@ -140,6 +140,10 @@ function draw() {
 //   image(camera, 0, 0, 640, 480);
 	
   loadPixels();
+	  if (capture.loadedmetadata) {
+    let c = capture.get(1, 0, 480, 480);
+    image(c, 0, 0);
+		  
   for (let y = 0; y < camera.height; y++) {
     for (let x = 0; x < camera.width; x++) {
       let index = (x + y * camera.width) * 4;
@@ -157,6 +161,7 @@ function draw() {
       rect(x * videoScale, y * videoScale, videoScale, videoScale);
 
     }
+  }
   }
   // updatePixels();
 
