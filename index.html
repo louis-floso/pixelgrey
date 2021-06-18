@@ -137,7 +137,7 @@ function draw() {
 	
   translate(camera.width,0);
   scale(-1, 1);
-  image(capture, 0, 0, 640, 480);
+  image(camera, 0, 0, 640, 480);
 	
   loadPixels();
   for (let y = 0; y < camera.height; y++) {
