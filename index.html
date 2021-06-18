@@ -96,14 +96,14 @@ function draw() {
   cam.loadPixels();
  // Loop through every 10th x and 10th y location
   for(let x = 0; x < cam.width; x+=20) {
-   for(let y = 0; y < cam.height; y+=pixelsize) {
+   for(let y = 0; y < cam.height; y+=15) {
      // Get an array of rgba values for each pixel
      // [r,g,b,a]
      let colorFromVideo = cam.get(x,y);
      // Get the brightness from the rgba array
      fill( colorFromVideo );
      // Draw a 10x10 rectangle
-     rect(x, y, 20, pixelsize);
+     rect(x, y, 20, 25);
    }
   }   
 }
