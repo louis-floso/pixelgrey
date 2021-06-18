@@ -69,11 +69,13 @@ canvas {
 
 // Variable for webcam
 let cam;
-
+let pixelsize;
 function setup() {
   createCanvas(800, 800);
   // Set the pixel density to 1
   pixelDensity(1);
+  
+  
   // Get the webcam feed
   cam = createCapture(VIDEO);
 
@@ -87,18 +89,21 @@ function draw() {
   // Display camera image
   image(cam, 0, 0);
   
+  pixelsize = 800/32
+  
+  
   // Load camera image pixels
   cam.loadPixels();
  // Loop through every 10th x and 10th y location
-  for(let x = 0; x < cam.width; x+=10) {
-   for(let y = 0; y < cam.height; y+=10) {
+  for(let x = 0; x < cam.width; x+=pixelsize) {
+   for(let y = 0; y < cam.height; y+=pixelsize) {
      // Get an array of rgba values for each pixel
      // [r,g,b,a]
      let colorFromVideo = cam.get(x,y);
      // Get the brightness from the rgba array
      fill( colorFromVideo );
      // Draw a 10x10 rectangle
-     rect(x, y, 10, 10);
+     rect(x, y, pixelsize, pixelsize);
    }
   }   
 }
