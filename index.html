@@ -140,8 +140,8 @@ function draw() {
 //   image(camera, 0, 0, 640, 480);
 	
   loadPixels();
-	  if (capture.loadedmetadata) {
-    let c = capture.get(1, 0, 480, 480);
+	  if (camera.loadedmetadata) {
+    let c = camera.get(1, 0, 480, 480);
     image(c, 0, 0);
 		  
   for (let y = 0; y < camera.height; y++) {
