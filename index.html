@@ -85,7 +85,8 @@ function setup() {
 function draw() {
   background(220);
   // Display camera image
-  image(cam, 0, 0);
+  image(cam, 0, 0, width, width * cam.height / cam.width);
+  
   // Load camera image pixels
   cam.loadPixels();
   // Loop through every 10th x and 10th y location
