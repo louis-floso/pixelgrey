@@ -123,17 +123,20 @@ function setup() {
   createCanvas(640, 480);
   camera = createCapture(VIDEO);
   camera.size(width / videoScale, height / videoScale);
+	
   // camera.hide();
 }
 
 function draw() {
   background(255);
-	
+	translate(camera.width/videoScale, 0);
+   scale(-1, 1);
  
 	
   camera.loadPixels();
-translate(camera.width, 0);
-   scale(-1, 1);
+	
+
+	
   loadPixels();
   for (let y = 0; y < camera.height; y++) {
     for (let x = 0; x < camera.width; x++) {
