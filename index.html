@@ -73,45 +73,87 @@ canvas {
 
 
 // Variable for webcam
-let cam;
-let pixelsize;
-function setup() {
-  createCanvas(800, 800);
-  // Set the pixel density to 1
-  pixelDensity(1);
+// let cam;
+// let pixelsize;
+// function setup() {
+//   createCanvas(800, 800);
+//   // Set the pixel density to 1
+//   pixelDensity(1);
   
   
-  // Get the webcam feed
-  cam = createCapture(VIDEO);
+//   // Get the webcam feed
+//   cam = createCapture(VIDEO);
 
-  // Hide the DOM element for the image <video>
-  cam.hide();
-  noStroke();
+//   // Hide the DOM element for the image <video>
+//   cam.hide();
+//   noStroke();
+// }
+
+// function draw() {
+// //   background(220);
+//   // Display camera image
+//   image(cam, 0, 0);
+  
+//   pixelsize = 800/32
+//    translate(cam.width, 0);
+//    scale(-1, 1);
+  
+//   // Load camera image pixels
+//   cam.loadPixels();
+//  // Loop through every 10th x and 10th y location
+//   for(let x = 0; x < cam.width; x+=20) {
+//    for(let y = 0; y < cam.height; y+=20) {
+//      // Get an array of rgba values for each pixel
+//      // [r,g,b,a]
+//      let colorFromVideo = cam.get(x,y);
+//      // Get the brightness from the rgba array
+//      fill( colorFromVideo );
+//      // Draw a 10x10 rectangle
+//      rect(x, y, 20, 20);
+//    }
+//   }   
+// }
+  
+  let camera;
+
+let videoScale = 16;
+
+function setup() {
+  pixelDensity(1);
+  createCanvas(640, 480);
+  camera = createCapture(VIDEO);
+  camera.size(width / videoScale, height / videoScale);
+  // camera.hide();
 }
 
 function draw() {
-//   background(220);
-  // Display camera image
-  image(cam, 0, 0);
-  
-  pixelsize = 800/32
-   translate(cam.width, 0);
-   scale(-1, 1);
-  
-  // Load camera image pixels
-  cam.loadPixels();
- // Loop through every 10th x and 10th y location
-  for(let x = 0; x < cam.width; x+=20) {
-   for(let y = 0; y < cam.height; y+=20) {
-     // Get an array of rgba values for each pixel
-     // [r,g,b,a]
-     let colorFromVideo = cam.get(x,y);
-     // Get the brightness from the rgba array
-     fill( colorFromVideo );
-     // Draw a 10x10 rectangle
-     rect(x, y, 20, 20);
-   }
-  }   
+  background(255);
+
+  camera.loadPixels()
+  loadPixels();
+  for (let y = 0; y < camera.height; y++) {
+    for (let x = 0; x < camera.width; x++) {
+      let index = (x + y * camera.width) * 4;
+      let r = camera.pixels[index + 0];
+      let g = camera.pixels[index + 1];
+      let b = camera.pixels[index + 2];
+
+      // pixels[index+0] = b;
+      // pixels[index+1] = r; 
+      // pixels[index+2] = g;
+      // pixels[index+3] = 255;
+      
+      noStroke();
+			fill(r, g, b);
+      rect(x * videoScale, y * videoScale, videoScale, videoScale);
+
+    }
+  }
+  // updatePixels();
+
+  // displays camera
+  // image(camera, 0,0, 320, 240);
+
 }
 
 </script>
