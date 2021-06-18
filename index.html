@@ -130,7 +130,7 @@ function draw() {
   background(255);
  translate(camera.width, 0);
    scale(-1, 1);
-  camera.loadPixels()
+  camera.loadPixels();
   loadPixels();
   for (let y = 0; y < camera.height; y++) {
     for (let x = 0; x < camera.width; x++) {
