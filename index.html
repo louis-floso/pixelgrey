@@ -2,15 +2,7 @@
 <html>
 <head>
 <style>
-  /* .video {
-    filter: grayscale(1);
-    -webkit-filter: grayscale(1);
-    filter: grayscale(100%);
-    image-rendering: pixelated;
-  }
-  .video {
-  width: 50%;
-  height: 50%; */
+
   html, body {
   margin: 0;
   padding: 0;
@@ -26,93 +18,30 @@ canvas {
   video{
  width: 500;
   height: 500;
+	    -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
   }
-
 
 
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-  <!-- <video class="video"></video> -->
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
-  <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
   <meta charset="utf-8" />
 
 </head>
 <body>
-  <!-- <script src="sketch.js"></script> -->
 
 </body>
 
 
 <script>
-//   window.onload = function() {
 
-//     //add constraints object
-//     var constraints = { audio: true,
-//       video: {
-//         width: { max: 32 },
-//         height: { max: 32 } 
-//     } };
-
-//     //call getUserMedia, then the magic
-//     navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream){
-//         var video = document.querySelector('video');
-//         video.srcObject = mediaStream;
-//         video.play();
-//     }).catch(function(err){
-//         console.log("yikes, and err!" + err.message);
-//     });
-
-// }
-
-
-// Variable for webcam
-// let cam;
-// let pixelsize;
-// function setup() {
-//   createCanvas(800, 800);
-//   // Set the pixel density to 1
-//   pixelDensity(1);
-  
-  
-//   // Get the webcam feed
-//   cam = createCapture(VIDEO);
-
-//   // Hide the DOM element for the image <video>
-//   cam.hide();
-//   noStroke();
-// }
-
-// function draw() {
-// //   background(220);
-//   // Display camera image
-//   image(cam, 0, 0);
-  
-//   pixelsize = 800/32
-//    translate(cam.width, 0);
-//    scale(-1, 1);
-  
-//   // Load camera image pixels
-//   cam.loadPixels();
-//  // Loop through every 10th x and 10th y location
-//   for(let x = 0; x < cam.width; x+=20) {
-//    for(let y = 0; y < cam.height; y+=20) {
-//      // Get an array of rgba values for each pixel
-//      // [r,g,b,a]
-//      let colorFromVideo = cam.get(x,y);
-//      // Get the brightness from the rgba array
-//      fill( colorFromVideo );
-//      // Draw a 10x10 rectangle
-//      rect(x, y, 20, 20);
-//    }
-//   }   
-// }
   
   let camera;
 
